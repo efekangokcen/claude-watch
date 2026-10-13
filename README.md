@@ -122,3 +122,7 @@ Gereksinimler: macOS + Xcode 26 veya üzeri, [Bun](https://bun.sh), Claude Code 
 ## Dış erişim
 
 Yerel ağda LAN IP yeter. Dışarıdan: Mac'e Tailscale kur, saatte Tailscale IP'sini kullan (watchOS Tailscale'i iPhone üzerinden değil doğrudan desteklemez; en kolayı Tailscale Serve/Funnel ile HTTPS vermek). Portu doğrudan internete açma.
+
+## Lisans
+
+MIT. Bkz. [LICENSE](LICENSE).
