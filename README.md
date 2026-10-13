@@ -1,6 +1,10 @@
 # claude-watch
 
-Apple Watch'tan Claude Code oturumlarını takip etmek için iki parça:
+Apple Watch'tan Claude Code oturumlarını takip et, soru sor, izin ve soruları saatten cevapla, bitince bildirim al. Ücretsiz Apple ID ile çalışır, ücretli geliştirici hesabı gerekmez.
+
+*Monitor Claude Code sessions from your Apple Watch: live status, transcripts, ask questions, answer permission prompts and finished-task replies from your wrist, push notifications via ntfy. Works with a free Apple ID.*
+
+İki parça:
 
 1. **bridge/** – Mac'te çalışan köprü servisi (Bun). Oturum durumunu, sohbet geçmişini ve soru göndermeyi yerel ağda bir HTTP + WebSocket API olarak açar.
 2. **watch/** – watchOS uygulaması (SwiftUI, watchOS 11+, bağımsız çalışır). Oturum listesi, sohbet görünümü, dikte ile soru sorma, Bonjour ile Mac'i otomatik bulma.
@@ -101,7 +105,19 @@ xcrun simctl install booted /tmp/cw-dd/Build/Products/Debug-watchsimulator/Claud
 xcrun simctl launch booted com.efekan.claudewatch
 ```
 
-Bildirimler: uygulama açıkken "bitti" ve "onay bekliyor" olayları titreşim + yerel bildirim olarak gelir. Arka planda push için APNs gerekir (v2).
+Bildirimler: uygulama açıkken olaylar titreşim + yerel bildirim olarak gelir; uygulama kapalıyken ntfy üzerinden telefona gider ve saate yansır (yukarıdaki bölüm).
+
+## Durum
+
+| Parça | Test |
+|---|---|
+| Köprü: oturum listesi, sohbet okuma, soru sorma, `--resume` devamı | Gerçek Claude Code oturumlarıyla uçtan uca doğrulandı |
+| Köprü: izin / soru / cevap penceresi hook'ları, Mac'e dönünce bırakma | Doğrulandı |
+| ntfy bildirimi | Doğrulandı |
+| Saat uygulaması | watchOS 27 simülatöründe (Series 10 46mm) doğrulandı: eşleştirme, liste, sohbet, soru, izin kartı |
+| Gerçek Apple Watch | Henüz denenmedi |
+
+Gereksinimler: macOS + Xcode 26 veya üzeri, [Bun](https://bun.sh), Claude Code (`claude` CLI girişli), watchOS 11+ bir Apple Watch, iPhone'da ntfy uygulaması (bildirim için).
 
 ## Dış erişim
 
