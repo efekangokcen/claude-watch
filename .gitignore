@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Xcode
+watch/DerivedData/
+**/xcuserdata/
+*.xcuserstate
+build/
+
+# Bun / Node
+node_modules/
+bun.lockb
+
+# local state (never commit): tokens, pair code, ntfy topic live in ~/.claude-watch
+*.log

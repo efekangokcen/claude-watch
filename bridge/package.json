@@ -1,0 +1,16 @@
+{
+  "name": "claude-watch-bridge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Mac-side bridge that exposes local Claude Code sessions (status, transcripts, ask) to the Apple Watch app.",
+  "scripts": {
+    "start": "bun run src/index.js",
+    "dev": "bun --watch run src/index.js",
+    "install-hooks": "bun run scripts/install-hooks.js",
+    "uninstall-hooks": "bun run scripts/install-hooks.js --remove"
+  },
+  "engines": {
+    "bun": ">=1.1"
+  }
+}
